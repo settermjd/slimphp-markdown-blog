@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="/css/styles.css" rel="stylesheet">
+   <title>Slim Framework Markdown Blog</title>
+</head>
+<body>
+<h1>Slim Framework Markdown Blog</h1>
+<h2>Items</h2>
+<ul>
+   {% for item in items %}
+      <li><a href="/item/{{ item.slug }}">{{ item.title }}</a></li>
+   {% endfor %}
+</ul>
+<footer>
+   <p>&copy; Matthew Setter.</p>
+</footer>
+</body>
+</html>

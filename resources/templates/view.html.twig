@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="/css/styles.css" rel="stylesheet">
+   <title>{{ item.title }} | Slim Framework Markdown Blog</title>
+</head>
+<body>
+<div class="text-right mb-2 md:mb-4">
+   <a href="/" title="Back to the home page" class="text-sm md:text-base text-stone-500 hover:underline hover:text-stone-600">&larr; Back to the home page</a>
+</div>
+<div class="content border-t-4 border-slate-700 pt-2 md:pt-6 mt-4">
+   <h1>{{ item.title }}</h1>
+   <p class="synopsis">{{ item.synopsis }}</p>
+   {{ item.content|raw }}
+   <p>In this episode I have a fireside chat about what it’s like to live the life of a developer evangelist with Jack Skinner, otherwise known as @developerjack, whilst he was at the first BuzzConf. He talked with me about the crazy hours, random locations, shared some stories from the road, such as having a conference call whilst walking down the boarding gate to catch a flight.</p>
+</div>
+<footer>
+   <p>&copy; Matthew Setter.</p>
+</footer>
+</body>
+</html>

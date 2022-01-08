@@ -1,0 +1,43 @@
+{
+    "name": "settermjd/slimphp-markdown-blog",
+    "description": "This is a file-based blog module that uses Markdown files with YAML front-matter for the content source.",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "slimphp",
+        "markdown",
+        "html",
+        "blog",
+        "middleware",
+        "psr",
+        "psr-7",
+        "psr-15"
+    ],
+    "support": {
+        "docs": "https://github.com/settermjd/slimphp-markdown-blog/docs",
+        "issues": "https://github.com/settermjd/slimphp-markdown-blog/issues",
+        "source": "https://github.com/settermjd/slimphp-markdown-blog",
+        "rss": "https://github.com/settermjd/slimphp-markdown-blog/releases.atom"
+    },
+    "require": {
+        "mnapoli/front-yaml": "^2.0",
+        "michelf/php-markdown": "^1.9",
+        "php-di/php-di": "^6.3",
+        "slim/slim": "^4.8",
+        "slim/twig-view": "^3.2",
+        "slim/psr7": "^1.4"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "MarkdownBlog\\": "src/Blog"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MarkdownBlogTest\\": "test/"
+        }
+    }
+}
