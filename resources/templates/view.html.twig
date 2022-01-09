@@ -7,17 +7,24 @@
    <title>{{ item.title }} | Slim Framework Markdown Blog</title>
 </head>
 <body>
-<div class="text-right mb-2 md:mb-4">
-   <a href="/" title="Back to the home page" class="text-sm md:text-base text-stone-500 hover:underline hover:text-stone-600">&larr; Back to the home page</a>
-</div>
+<header class="grid grid-cols-2 gap-2 mb-2 md:mb-4">
+   <div class="text-left">
+      <a href="/" class="text-sm md:text-base text-stone-800 font-bold no-underline hover:underline transition ease-in-out delay-150 duration-300 underline-offset-4 decoration-2">Slim Framework Markdown Blog</a>
+   </div>
+   <div class="text-right">
+      <a href="/" title="Back to the home page" class="text-sm md:text-base text-stone-500 hover:underline hover:text-stone-600">&larr; Back to the home page</a>
+   </div>
+</header>
 <div class="content border-t-4 border-slate-700 pt-2 md:pt-6 mt-4">
-   <h1>{{ item.title }}</h1>
+   <h1 class="mb-0 pb-0">{{ item.title }}</h1>
+   <p class="border-slate-700 font-bold mt-2 pt-0 pb-2 md:pb-2 mb-2">By Matthew Setter, Jan 21, 2021</p>
    <p class="synopsis">{{ item.synopsis }}</p>
    {{ item.content|raw }}
    <p>In this episode I have a fireside chat about what it’s like to live the life of a developer evangelist with Jack Skinner, otherwise known as @developerjack, whilst he was at the first BuzzConf. He talked with me about the crazy hours, random locations, shared some stories from the road, such as having a conference call whilst walking down the boarding gate to catch a flight.</p>
 </div>
 <footer>
-   <p>&copy; Matthew Setter.</p>
+   <p>&copy; Matthew Setter. <a href="/">Impressum</a>. <a href="/">Privacy Policy</a>. <a href="/">Terms of Use</a>.
+      <a href="/">Disclaimer</a> </p>
 </footer>
 </body>
 </html>
