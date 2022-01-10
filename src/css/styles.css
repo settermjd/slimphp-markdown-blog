@@ -10,19 +10,19 @@
         @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-800 font-bold mb-2 sm:mb-6;
     }
     h2 {
-        @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-800 font-bold mb-2 mt-4 sm:mb-4;
+        @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-800 font-bold mb-2 mt-4 xl:mt-10 sm:mb-4;
     }
     a {
         @apply text-stone-700 underline decoration-2;
     }
     p {
-        @apply text-slate-700 leading-normal text-base md:text-lg lg:text-xl mb-4 mt-2;
+        @apply text-slate-700 leading-normal text-base md:text-lg lg:text-xl xl:text-2xl xl:leading-relaxed mb-4 mt-2;
     }
     ul {
         @apply list-disc list-inside leading-relaxed mt-2 mb-4 ml-4;
     }
     li {
-        @apply mb-2 text-base md:text-lg lg:text-xl text-slate-700;
+        @apply mb-2 text-base md:text-lg lg:text-xl xl:text-2xl xl:leading-relaxed text-slate-700;
     }
     .synopsis {
         @apply text-slate-800 leading-snug text-xl md:text-2xl lg:text-3xl font-light mb-4 md:mb-6 mt-2;

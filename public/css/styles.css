@@ -588,6 +588,12 @@ h2 {
   }
 }
 
+@media (min-width: 1280px) {
+  h2 {
+    margin-top: 2.5rem;
+  }
+}
+
 a {
   --tw-text-opacity: 1;
   color: rgb(68 64 60 / var(--tw-text-opacity));
@@ -620,6 +626,17 @@ p {
   }
 }
 
+@media (min-width: 1280px) {
+  p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  p {
+    line-height: 1.625;
+  }
+}
+
 ul {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
@@ -648,6 +665,17 @@ li {
   li {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  li {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  li {
+    line-height: 1.625;
   }
 }
 
