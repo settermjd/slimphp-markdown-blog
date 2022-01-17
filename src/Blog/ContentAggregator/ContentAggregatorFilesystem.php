@@ -2,7 +2,6 @@
 
 namespace MarkdownBlog\ContentAggregator;
 
-use DirectoryIterator;
 use MarkdownBlog\Iterator\MarkdownFileFilterIterator;
 use MarkdownBlog\Entity\BlogItem;
 use Mni\FrontYAML\Document;
@@ -10,23 +9,18 @@ use Mni\FrontYAML\Parser;
 
 class ContentAggregatorFilesystem implements ContentAggregatorInterface
 {
-    protected string $postDirectory;
     protected Parser $fileParser;
     protected MarkdownFileFilterIterator $fileIterator;
     private array $items = [];
 
     public function __construct(
-        string $postDirectory,
+        MarkdownFileFilterIterator $fileIterator,
         Parser $fileParser
     ) {
-        $this->postDirectory = $postDirectory;
         $this->fileParser = $fileParser;
-        $this->fileIterator = new MarkdownFileFilterIterator(
-            new DirectoryIterator(
-                $this->postDirectory
-            )
-        );
-        $this->items = $this->buildItemsList();
+        $this->fileIterator = $fileIterator;
+
+        $this->buildItemsList();
     }
 
     public function getItems(): array
@@ -34,25 +28,14 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
         return $this->items;
     }
 
-    protected function buildItemsList(): array
+    protected function buildItemsList(): void
     {
-        $episodeListing = [];
         foreach ($this->fileIterator as $file) {
             $article = $this->buildItemFromFile($file);
             if (! is_null($article)) {
-                $episodeListing[] = $article;
+                $this->items[] = $article;
             }
         }
-
-        return $episodeListing;
-    }
-
-    protected function getMarkdownFileDataDirectory(): string
-    {
-        return $this
-            ->fileIterator
-            ->getInnerIterator()
-            ->getPath();
     }
 
     public function findItemBySlug(string $slug): ?BlogItem
