@@ -16,8 +16,11 @@
    </div>
 </header>
 <div class="content border-t-4 border-slate-700 pt-2 md:pt-6 mt-4">
-   <h1 class="mb-0 pb-0">{{ item.title }}</h1>
-   <p class="border-slate-700 font-bold mt-2 pt-0 pb-2 md:pb-2 mb-2">By Matthew Setter, Jan 21, 2021</p>
+   <h1 class="mb-2 pb-0">{{ item.title }}</h1>
+   <p class="border-slate-700 text-base font-bold mt-0 pt-0 pb-2 md:pb-2 mb-2">
+      By Matthew Setter. {{ item.publishDate|format_datetime(pattern="LLLL dd, Y") }}
+   </p>
+   <img src="/images/posts/{{ item.image }}" alt="{{ item.title }}" class="mb-4">
    <p class="synopsis">{{ item.synopsis }}</p>
    {{ item.content|raw }}
    <p>In this episode I have a fireside chat about what it’s like to live the life of a developer evangelist with Jack Skinner, otherwise known as @developerjack, whilst he was at the first BuzzConf. He talked with me about the crazy hours, random locations, shared some stories from the road, such as having a conference call whilst walking down the boarding gate to catch a flight.</p>

@@ -12,11 +12,16 @@ use Psr\Http\Message\{
 };
 use Slim\Factory\AppFactory;
 use Slim\Views\{Twig,TwigMiddleware};
+use Twig\Extra\Intl\IntlExtension;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $container = new Container();
-$container->set('view', fn() => Twig::create(__DIR__ . '/../resources/templates'));
+$container->set('view', function($c) {
+    $twig = Twig::create(__DIR__ . '/../resources/templates');
+    $twig->addExtension(new IntlExtension());
+    return $twig;
+});
 $container->set(
     ContentAggregatorInterface::class,
     fn() => (new ContentAggregatorFactory())->__invoke([
