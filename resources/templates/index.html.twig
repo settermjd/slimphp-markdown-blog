@@ -1,22 +1,28 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link href="/css/styles.css" rel="stylesheet">
-   <title>Slim Framework Markdown Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/styles.css" rel="stylesheet">
+    <title>Slim Framework Markdown Blog</title>
 </head>
 <body>
-<h1>Slim Framework Markdown Blog</h1>
-<h2>Items</h2>
-<ul>
-   {% for item in items %}
-      <li>{{ item.publishDate|format_datetime(pattern="LLLL dd, Y") }} - <a href="/item/{{ item.slug }}">{{ item.title }}</a></li>
-   {% endfor %}
-</ul>
+<h1 class="mb-0">Slim Framework Markdown Blog</h1>
+<p class="lead">A blog about software development in PHP, Testing, DevOps, and more.</p>
+<h2 class="homepage">Latest Posts</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 sm:gap-y-8">
+    {% for item in items %}
+        <div>
+            <a class="no-underline transition duration-500 ease-in-out transform hover:underline"
+               href="/item/{{ item.slug }}"><img src="/images/posts/{{ item.image }}" class="rounded-lg"></a>
+            <a class="no-underline" href="/item/{{ item.slug }}"><h3>{{ item.title }}</h3></a>
+            {{ item.publishDate|format_datetime(pattern="dd.MM.Y") }}
+        </div>
+    {% endfor %}
+</div>
 <footer>
-   <p>&copy; Matthew Setter. <a href="/">Impressum</a>. <a href="/">Privacy Policy</a>. <a href="/">Terms of Use</a>.
-      <a href="/">Disclaimer</a> </p>
+    <p>&copy; Matthew Setter. <a href="/">Impressum</a>. <a href="/">Privacy Policy</a>. <a href="/">Terms of Use</a>.
+        <a href="/">Disclaimer</a> </p>
 </footer>
 </body>
 </html>
