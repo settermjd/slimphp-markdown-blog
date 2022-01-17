@@ -7,7 +7,7 @@
         @apply p-2 pl-4 pr-4 lg:p-6 mt-2 lg:mt-4 bg-amber-300 subpixel-antialiased w-full sm:w-9/12 md:w-10/12 xl:w-6/12 2xl:w-5/12 sm:mx-auto;
     }
     h1 {
-        @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-slate-800 font-bold mb-2 sm:mb-6;
+        @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-slate-800 font-bold mb-2 sm:mb-6;
     }
     h2 {
         @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate-800 font-bold mb-2 mt-4 xl:mt-10 sm:mb-4;
@@ -16,7 +16,7 @@
         @apply text-stone-700 underline decoration-2;
     }
     p {
-        @apply text-slate-700 leading-normal text-base md:text-lg lg:text-xl xl:text-2xl xl:leading-relaxed mb-4 mt-2;
+        @apply text-slate-700 leading-normal text-lg md:text-xl xl:text-2xl xl:leading-relaxed mb-4 mt-2;
     }
     ul {
         @apply list-disc list-inside leading-relaxed mt-2 mb-4 ml-4;
@@ -28,6 +28,6 @@
         @apply text-slate-800 leading-snug text-xl md:text-2xl lg:text-3xl font-light mb-4 md:mb-6 mt-2;
     }
     footer {
-        @apply mt-6 pt-2 text-slate-700 text-sm border-t-4 border-slate-700;
+        @apply mt-6 pt-2 text-slate-700 text-base border-t-4 border-slate-700;
     }
 }
