@@ -61,8 +61,7 @@ class BlogItem
 
     public function getContent(): string
     {
-        $markdownParser = new MarkdownExtra();
-        return $markdownParser->defaultTransform($this->content);
+        return (new MarkdownExtra())->defaultTransform($this->content);
     }
 
     public function getTags(): array
