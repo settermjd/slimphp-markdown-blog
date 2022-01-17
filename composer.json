@@ -20,12 +20,16 @@
         "rss": "https://github.com/settermjd/slimphp-markdown-blog/releases.atom"
     },
     "require": {
-        "mnapoli/front-yaml": "^2.0",
         "michelf/php-markdown": "^1.9",
+        "mnapoli/front-yaml": "^2.0",
         "php-di/php-di": "^6.3",
+        "slim/psr7": "^1.4",
         "slim/slim": "^4.8",
         "slim/twig-view": "^3.2",
-        "slim/psr7": "^1.4"
+        "twig/intl-extra": "^3.3"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
     },
     "config": {
         "sort-packages": true
