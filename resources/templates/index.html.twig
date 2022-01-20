@@ -9,14 +9,18 @@
 <body>
 <h1>Slim Framework Markdown Blog</h1>
 <h2>Items</h2>
-<ul>
+<ul id="blog-posts">
    {% for item in items %}
       <li><a href="/item/{{ item.slug }}">{{ item.title }}</a></li>
    {% endfor %}
 </ul>
 <footer>
-   <p>&copy; Matthew Setter. <a href="/">Impressum</a>. <a href="/">Privacy Policy</a>. <a href="/">Terms of Use</a>.
-      <a href="/">Disclaimer</a> </p>
+   <p>&copy; Matthew Setter.
+      <a href="/impressum">Impressum</a>.
+      <a href="/privacy-policy">Privacy Policy</a>.
+      <a href="/terms-of-use">Terms of Use</a>.
+      <a href="/disclaimer">Disclaimer</a>
+   </p>
 </footer>
 </body>
 </html>

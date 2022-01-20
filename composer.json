@@ -39,5 +39,18 @@
         "psr-4": {
             "MarkdownBlogTest\\": "test/"
         }
+    },
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "codeception/lib-asserts": "^2.0",
+        "codeception/module-asserts": "^2.0",
+        "codeception/module-phpbrowser": "^2.0",
+        "codeception/module-rest": "^2.0",
+        "codeception/module-webdriver": "^2.0",
+        "codeception/phpunit-wrapper": "^9.0",
+        "codeception/specify": "^2.0",
+        "codeception/stub": "^4.0",
+        "codeception/verify": "^2.2",
+        "phpunit/phpunit": "^9.5"
     }
 }
