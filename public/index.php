@@ -16,6 +16,10 @@ use Twig\Extra\Intl\IntlExtension;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../', ['.env', '.env.development'], false);
+$dotenv->safeLoad();
+$dotenv->required('POSTS_DIRECTORY');
+
 $container = new Container();
 $container->set('view', function($c) {
     $twig = Twig::create(__DIR__ . '/../resources/templates');
@@ -25,7 +29,7 @@ $container->set('view', function($c) {
 $container->set(
     ContentAggregatorInterface::class,
     fn() => (new ContentAggregatorFactory())->__invoke([
-        'path' => __DIR__ . '/../data/posts',
+        'path' => __DIR__ . sprintf('/../%s', $_SERVER['POSTS_DIRECTORY']),
         'parser' => new Parser(),
     ])
 );

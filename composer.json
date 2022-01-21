@@ -29,7 +29,20 @@
         "twig/intl-extra": "^3.3"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest"
+        "codeception/codeception": "^4.1",
+        "codeception/lib-asserts": "^2.0",
+        "codeception/module-asserts": "^2.0",
+        "codeception/module-filesystem": "^2.0",
+        "codeception/module-phpbrowser": "^2.0",
+        "codeception/module-rest": "^2.0",
+        "codeception/module-webdriver": "^2.0",
+        "codeception/phpunit-wrapper": "^9.0",
+        "codeception/specify": "^2.0",
+        "codeception/stub": "^4.0",
+        "codeception/verify": "^2.2",
+        "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest",
+        "vlucas/phpdotenv": "^5.4"
     },
     "config": {
         "sort-packages": true
