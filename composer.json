@@ -20,12 +20,13 @@
         "rss": "https://github.com/settermjd/slimphp-markdown-blog/releases.atom"
     },
     "require": {
-        "mnapoli/front-yaml": "^2.0",
         "michelf/php-markdown": "^1.9",
+        "mnapoli/front-yaml": "^2.0",
         "php-di/php-di": "^6.3",
+        "slim/psr7": "^1.4",
         "slim/slim": "^4.8",
         "slim/twig-view": "^3.2",
-        "slim/psr7": "^1.4"
+        "vlucas/phpdotenv": "^5.4"
     },
     "config": {
         "sort-packages": true
@@ -44,6 +45,7 @@
         "codeception/codeception": "^4.1",
         "codeception/lib-asserts": "^2.0",
         "codeception/module-asserts": "^2.0",
+        "codeception/module-filesystem": "^2.0",
         "codeception/module-phpbrowser": "^2.0",
         "codeception/module-rest": "^2.0",
         "codeception/module-webdriver": "^2.0",
