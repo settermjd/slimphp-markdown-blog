@@ -20,5 +20,7 @@ class DefaultRouteCest
         $I->seeLink('Privacy Policy', '/privacy-policy');
         $I->seeLink('Terms of Use', '/terms-of-use');
         $I->seeLink('Disclaimer', '/disclaimer');
+        $I->seeNumberOfElements('//ul[@id="blog-posts"]/li', 4);
+        $I->seeNumberOfElements('//footer/p/a', 4);
     }
 }
