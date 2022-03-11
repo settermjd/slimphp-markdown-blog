@@ -10,7 +10,13 @@ Depending on how you use the application, your prerequisites will differ.
 
 ### Using Docker Compose
 
-If you're using Docker Compose (I recommend [version 2](https://docs.docker.com/compose/cli-command/)), you only need, naturally Docker Compose, and Docker Engine. If you're not, then you will need the following:
+If you're using [Docker Compose](https://docs.docker.com/compose/) (I recommend [version 2](https://docs.docker.com/compose/cli-command/)), you only need, naturally Docker Compose, and Docker Engine. 
+
+**Want to learn the essentials of Docker Compose as quickly as possible?** Grab a copy of the book I wrote about it: [Deploy With Docker Compose](https://deploywithdockercompose.com?utm_source=github&utm_medium=readme&utm_campaign=slimphp-markdown-blog). It's **free!**
+
+### Not Using Docker Compose
+
+If you're not using Docker Compose, then you will need the following:
 
 - A [Memcached](https://memcached.org/) server
 - [Composer](https://getcomposer.org/) installed globally.
