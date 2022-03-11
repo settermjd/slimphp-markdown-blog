@@ -2,8 +2,11 @@
 
 namespace MarkdownBlog\ContentAggregator;
 
+use ArrayIterator;
 use MarkdownBlog\Iterator\MarkdownFileFilterIterator;
 use MarkdownBlog\Entity\BlogItem;
+use MarkdownBlog\Iterator\PublishedItemFilterIterator;
+use MarkdownBlog\Sorter\SortByReverseDateOrder;
 use Mni\FrontYAML\Document;
 use Mni\FrontYAML\Parser;
 
@@ -25,7 +28,17 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
 
     public function getItems(): array
     {
+        $sorter = new SortByReverseDateOrder();
+        usort($this->items, $sorter);
+
         return $this->items;
+    }
+
+    public function getPublishedItems(): \Traversable
+    {
+        return new PublishedItemFilterIterator(
+            new ArrayIterator($this->items)
+        );
     }
 
     protected function buildItemsList(): void
