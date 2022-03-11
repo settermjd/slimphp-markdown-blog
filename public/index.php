@@ -20,6 +20,15 @@ use Twig\Extra\Intl\IntlExtension;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+/**
+ * Load application environment variables from a combination of .env
+ * and .env.development files, located in the project's root directory.
+ *
+ * If the files don't exist, an exception won't be thrown. However,
+ * at least one needs to exist, and contain the variable POSTS_DIRECTORY,
+ * as that is listed as required. This variable is the path to the directory
+ * with the Markdown source files, that contain the blog item information.
+ */
 $dotenv = Dotenv\Dotenv::createImmutable(
     __DIR__ . '/../',
     [
@@ -31,15 +40,30 @@ $dotenv = Dotenv\Dotenv::createImmutable(
 $dotenv->safeLoad();
 $dotenv->required('POSTS_DIRECTORY');
 
+/**
+ * Instantiate the application's DI container
+ */
 $container = new Container();
 
+/**
+ * Add a container service to provide the application's "view" layer,
+ * handled by the venerable Twig templating engine.
+ */
 $container->set('view', function($c) {
     $twig = Twig::create(__DIR__ . '/../resources/templates');
     $twig->addExtension(new IntlExtension());
-    
+
     return $twig;
 });
 
+/**
+ * Add a container service to provide the application's article content.
+ *
+ * The articles will be retrieved from the "cache" service, if available.
+ * Otherwise, the full content aggregation pipeline is executed, the
+ * aggregated `BlogItem` entities will be stored in the application's
+ * cache, and then they will be returned.
+ */
 $container->set('articles', function($c) {
     /** @var CacheInterface $cache */
     $cache = $c->get('cache');
@@ -59,6 +83,14 @@ $container->set('articles', function($c) {
     return $items;
 });
 
+/**
+ * Add a container service to provide the application's cache service.
+ *
+ * This is provided by laminas-cache using laminas-cache-storage-adapter-memcached
+ * for interacting with a Memcached server. In the current configuration,
+ * only one Memcached server is being connected to. Change this, as
+ * suits your needs.
+ */
 $container->set('cache', function($c): CacheInterface {
     $resourceManager = (new MemcachedResourceManager())
         ->addServer(
@@ -79,10 +111,18 @@ $container->set('cache', function($c): CacheInterface {
     );
 });
 
+/**
+ * Instantiate a new Slim Framework application, passing it the DI container.
+ */
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 $app->add(TwigMiddleware::createFromContainer($app));
 
+/**
+ * Define the default route.
+ *
+ * This route lists all articles in the application; it's the "blog index" page.
+ */
 $app->map(['GET'], '/', function (Request $request, Response $response, array $args) {
     return $this->get('view')->render(
         $response,
@@ -91,6 +131,11 @@ $app->map(['GET'], '/', function (Request $request, Response $response, array $a
     );
 });
 
+/**
+ * Define a route to view a blog article.
+ *
+ * This route retrieves a blog article by its slug and renders it.
+ */
 $app->map(['GET'], '/item/{slug}', function (Request $request, Response $response, array $args) {
     $view = $this->get('view');
     return $view->render(
@@ -100,6 +145,8 @@ $app->map(['GET'], '/item/{slug}', function (Request $request, Response $respons
     );
 });
 
-// Boot the application
+/**
+ * Boot the application
+ */
 $app->run();
 

@@ -34,9 +34,6 @@ class BlogItem
         }
     }
 
-    /**
-     * Returns a \DateTime object, which can be used to determine the publish date.
-     */
     public function getPublishDate(): DateTime
     {
         return new DateTime($this->publishDate);

@@ -7,6 +7,10 @@ namespace MarkdownBlog\Iterator;
 use DirectoryIterator;
 use SplFileInfo;
 
+/**
+ * This class takes a DirectoryIterator and removes any item
+ * that isn't a Markdown file.
+ */
 class MarkdownFileFilterIterator extends \FilterIterator
 {
     public function __construct(DirectoryIterator $iterator)

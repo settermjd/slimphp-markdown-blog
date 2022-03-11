@@ -26,6 +26,9 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
         $this->buildItemsList();
     }
 
+    /**
+     * Retrieve all, available, blog items
+     */
     public function getItems(): array
     {
         $sorter = new SortByReverseDateOrder();
@@ -34,6 +37,9 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
         return $this->items;
     }
 
+    /**
+     * Retrieve only the published blog items
+     */
     public function getPublishedItems(): \Traversable
     {
         return new PublishedItemFilterIterator(
@@ -41,6 +47,10 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
         );
     }
 
+    /**
+     * Build an array of MarkdownBlog\Entity\BlogItem objects
+     * from the available Markdown files.
+     */
     protected function buildItemsList(): void
     {
         foreach ($this->fileIterator as $file) {
@@ -51,6 +61,10 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
         }
     }
 
+    /**
+     * Retrieve a BlogItem object from the list of available items,
+     * based on its slug.
+     */
     public function findItemBySlug(string $slug): ?BlogItem
     {
         foreach ($this->items as $article) {
@@ -62,6 +76,10 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
         return null;
     }
 
+    /**
+     * Instantiate a BlogItem object based on the information retrieved
+     * from the Markdown file.
+     */
     public function buildItemFromFile(\SplFileInfo $file): ?BlogItem
     {
         $fileContent = file_get_contents($file->getPathname());
@@ -73,6 +91,9 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
         return $item;
     }
 
+    /**
+     * Retrieve raw file data.
+     */
     public function getItemData(Document $document): array
     {
         return [

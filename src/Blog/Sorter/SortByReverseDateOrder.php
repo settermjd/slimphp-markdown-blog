@@ -6,6 +6,10 @@ namespace MarkdownBlog\Sorter;
 
 use MarkdownBlog\Entity\BlogItem;
 
+/**
+ * This class sorts an array of BlogItems, based on their
+ * publish date, in reverse chronological order.
+ */
 class SortByReverseDateOrder
 {
     public function __invoke(BlogItem $a, BlogItem $b): int

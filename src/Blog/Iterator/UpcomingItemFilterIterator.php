@@ -7,6 +7,10 @@ namespace MarkdownBlog\Iterator;
 use DateTime;
 use MarkdownBlog\Entity\BlogItem;
 
+/**
+ * This class filters out any BlogItem that, based on its
+ * publish date, is already published.
+ */
 class UpcomingItemFilterIterator extends \FilterIterator
 {
     public function __construct(\Iterator $iterator)
