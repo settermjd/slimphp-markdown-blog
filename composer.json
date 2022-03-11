@@ -20,6 +20,8 @@
         "rss": "https://github.com/settermjd/slimphp-markdown-blog/releases.atom"
     },
     "require": {
+        "laminas/laminas-cache": "^3.1",
+        "laminas/laminas-cache-storage-adapter-memcached": "^2.0",
         "michelf/php-markdown": "^1.9",
         "mnapoli/front-yaml": "^2.0",
         "php-di/php-di": "^6.3",
