@@ -10,7 +10,7 @@ use Michelf\MarkdownExtra;
 
 class BlogItem
 {
-    private DateTime $publishDate;
+    private string $publishDate;
     private string $slug = '';
     private string $title = '';
     private string $image = '';
@@ -29,9 +29,7 @@ class BlogItem
         $properties = get_class_vars(__CLASS__);
         foreach ($options as $key => $value) {
             if (array_key_exists($key, $properties) && !empty($value)) {
-                $this->$key = ($key === 'publishDate')
-                    ? new \DateTime($value)
-                    : $value;
+                $this->$key = $value;
             }
         }
     }
@@ -41,7 +39,7 @@ class BlogItem
      */
     public function getPublishDate(): DateTime
     {
-        return $this->publishDate;
+        return new DateTime($this->publishDate);
     }
 
     public function getSlug(): string
