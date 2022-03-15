@@ -6,6 +6,7 @@ use ArrayIterator;
 use MarkdownBlog\Iterator\MarkdownFileFilterIterator;
 use MarkdownBlog\Entity\BlogItem;
 use MarkdownBlog\Iterator\PublishedItemFilterIterator;
+use MarkdownBlog\Iterator\UnpublishedItemFilterIterator;
 use MarkdownBlog\Sorter\SortByReverseDateOrder;
 use Mni\FrontYAML\Document;
 use Mni\FrontYAML\Parser;
@@ -43,6 +44,13 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
     public function getPublishedItems(): \Traversable
     {
         return new PublishedItemFilterIterator(
+            new ArrayIterator($this->items)
+        );
+    }
+
+    public function getUnpublishedItems(): \Traversable
+    {
+        return new UnpublishedItemFilterIterator(
             new ArrayIterator($this->items)
         );
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MarkdownBlog\ContentAggregator;
 
 use MarkdownBlog\Entity\BlogItem;
+use Traversable;
 
 interface ContentAggregatorInterface
 {
@@ -18,4 +19,14 @@ interface ContentAggregatorInterface
      * Retrieve all, available, blog items
      */
     public function getItems();
+
+    /**
+     * Retrieve only the published blog items
+     */
+    public function getPublishedItems(): Traversable;
+
+    /**
+     * Retrieve only the unpublished blog items
+     */
+    public function getUnpublishedItems(): Traversable;
 }
