@@ -32,9 +32,6 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
      */
     public function getItems(): array
     {
-        $sorter = new SortByReverseDateOrder();
-        usort($this->items, $sorter);
-
         return $this->items;
     }
 
@@ -67,6 +64,8 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
                 $this->items[] = $article;
             }
         }
+
+        $this->sortItems();
     }
 
     /**
@@ -114,5 +113,14 @@ class ContentAggregatorFilesystem implements ContentAggregatorInterface
             'tags' => $document->getYAML()['tags'] ?? [],
             'content' => $document->getContent(),
         ];
+    }
+
+    /**
+     * @return void
+     */
+    public function sortItems(): void
+    {
+        $sorter = new SortByReverseDateOrder();
+        usort($this->items, $sorter);
     }
 }
